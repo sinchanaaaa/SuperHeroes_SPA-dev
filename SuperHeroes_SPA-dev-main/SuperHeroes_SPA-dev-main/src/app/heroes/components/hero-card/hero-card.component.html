@@ -1,0 +1,39 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      <h2>{{ this.hero?.superhero }}</h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <h3>{{ this.hero?.alter_ego }}</h3>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="this.hero | heroPicture"
+    alt="{{ hero?.superhero }}" />
+  <mat-card-content>
+    <h3>{{ hero?.publisher }}</h3>
+    <p><strong>First Appearance:</strong> {{ hero?.first_appearance }}</p>
+    <br />
+    <p><strong>Characters:</strong> {{ hero?.characters }}</p>
+  </mat-card-content>
+  <mat-card-actions
+    fxLayout="row wrap"
+    fxLayoutAlign="space-around center"
+    fxLayoutGap="5">
+    <button
+      mat-flat-button
+      color="accent"
+      [routerLink]="['/heroes/edit', hero?.id]">
+      {{ 'Edit Heroe' | uppercase }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      [routerLink]="['/heroes/', hero?.id]">
+      {{ 'View More' | uppercase }}
+    </button>
+  </mat-card-actions>
+  <mat-card-footer></mat-card-footer>
+</mat-card>
